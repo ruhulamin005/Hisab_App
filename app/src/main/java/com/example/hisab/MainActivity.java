@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://bit.ly/2Y2zpbm"); // url for sheet
-
+        webView.reload();
+        webView.getScrollY();
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
