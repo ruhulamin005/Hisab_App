@@ -2,14 +2,16 @@ package com.example.hisab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    //initializing button and webview into private
     private WebView webView;
     private Button button;
 
@@ -17,16 +19,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //initializing button and webview
+        // button and webview referencing with xml
         webView = (WebView) findViewById(R.id.webview);
         button = (Button) findViewById(R.id.button);
 
 
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://bit.ly/2Y2zpbm");
+        webView.loadUrl("https://bit.ly/2Y2zpbm"); // url for sheet
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+
+        //Setting on click for Button to go FORM activity
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFormActivity();
+            }
+        });
     }
 
     @Override
@@ -38,5 +49,13 @@ public class MainActivity extends AppCompatActivity {
         {
             super.onBackPressed();
         }
+    }
+
+    //For form activity
+    public void openFormActivity(){
+
+
+        Intent intent = new Intent(this, form.class);
+        startActivity(intent);
     }
 }
