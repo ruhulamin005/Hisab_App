@@ -32,7 +32,7 @@ public class form extends AppCompatActivity {
 
       //  webView.setWebViewClient(new WebViewClient());
 
-
+    //magic code to solve form submit issue
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
